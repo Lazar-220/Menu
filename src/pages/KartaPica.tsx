@@ -119,9 +119,20 @@ const KartaPica = () => {
 
           setGroupedMenu(grouped);
 
-          // Postavi prvu kategoriju kao otvorenu tek kad podaci stignu
-          setActiveCategory(Object.keys(grouped)[0] ?? null);
-          //
+          // Nađi koji index je trenutno aktivna kategorija u starom jeziku
+          // pa otvori isti index u novom jeziku
+          const stareKategorije = language === 'en' ? KATEGORIJE_PICA : KATEGORIJE_PICA_ENG;
+          const noveKategorije = language === 'en' ? KATEGORIJE_PICA_ENG : KATEGORIJE_PICA;
+          
+          const stariIndex = activeCategory 
+            ? stareKategorije.indexOf(activeCategory) 
+            : 0;
+          
+          const novaKategorija = stariIndex !== -1 
+            ? noveKategorije[stariIndex] 
+            : Object.keys(grouped)[0];
+
+          setActiveCategory(novaKategorija ?? Object.keys(grouped)[0] ?? null);
         }
       } catch (error) {
         console.error("Greška pri učitavanju menija:", error);

@@ -66,7 +66,7 @@ const Navbar = () => {
                 className="control-btn md:hidden ml-2 bg-[#1a5c96] text-white hover:bg-[#13426b] dark:bg-blue-600 dark:hover:bg-blue-500"
                 aria-label="Promeni stranicu"
               >
-                {isJelovnik ? <FiCoffee size={20} /> : <MdOutlineRestaurantMenu size={20} />}
+                {isJelovnik ? <FiCoffee size={20} style={{'color':'white'}}/> : <MdOutlineRestaurantMenu size={20} style={{'color':'white'}}/>}
               </button>
 
             </div>
